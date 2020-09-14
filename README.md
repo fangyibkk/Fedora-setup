@@ -26,3 +26,21 @@ sudo dnf install zsh
 // copy that curl install script and paste
 chsh -s $(which zsh)
 ```
+## Docker problem as always
+One user fault is not starting docker deamon
+```
+sudo systemctl start docker
+sudo systemctl status docker
+sudo systemctl restart docker
+```
+More about permission
+This solves the problem with `unix://` socket permission
+```
+sudo chmod 666 /var/run/docker.sock
+```
+Another basic is permission in the directory
+```
+usermod -aG docker ${USER}
+sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
+sudo chmod g+rwx "$HOME/.docker" -R
+```
