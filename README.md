@@ -44,3 +44,11 @@ usermod -aG docker ${USER}
 sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
 sudo chmod g+rwx "$HOME/.docker" -R
 ```
+Advance things like cgroup
+I have no idea about this. Follow this post works for me https://fedoramagazine.org/docker-and-fedora-32/
+```
+sudo grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=0"
+sudo firewall-cmd --permanent --zone=trusted --add-interface=docker0
+sudo firewall-cmd --permanent --zone=FedoraWorkstation --add-masquerade
+```
+
