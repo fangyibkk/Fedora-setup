@@ -18,3 +18,11 @@ gsettings list-schemas
 gsettings list-keys org.gnome.desktop.wm.keybindings
 ```
 This tell you the structure is schema --> keys --> value
+
+## Setup ZSH
+```
+sudo dnf install zsh
+// go to https://ohmyz.sh/#install
+// copy that curl install script and paste
+chsh -s $(which zsh)
+```
