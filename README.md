@@ -19,6 +19,13 @@ gsettings list-keys org.gnome.desktop.wm.keybindings
 ```
 This tell you the structure is schema --> keys --> value
 
+### Node.js and yarn
+I'm impressed that node and yarn is up-to-date than apt
+```
+sudo dnf install nodejs
+sudo dnf install yarnjs
+```
+
 ## Setup ZSH
 ```
 sudo dnf install zsh
