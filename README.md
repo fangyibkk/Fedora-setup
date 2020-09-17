@@ -1,6 +1,16 @@
 # Fedora-setup
 My step used in Fedora 32 setup
 
+## Basic dnf
+basic command to install, update
+```
+sudo dnf install <package_name>
+sudo dnf update
+sudo dnf remove docker-*
+sudo dnf config-manager --disable docker-*
+```
+
+
 ## Alt Shift for input change without gnome-tweak
 ```
 gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Shift>Alt_L']"
@@ -34,7 +44,34 @@ sudo dnf install zsh
 chsh -s $(which zsh)
 ```
 ## Docker problem as always
-One user fault is not starting docker deamon
+This is from Fedora Magazine \
+credit: https://fedoramagazine.org/docker-and-fedora-32/ \
+
+This root problem is that Fedora move to cgroup v2 but most of the container stick with cgroup v1.
+```
+sudo grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=0"
+```
+Enable firewall
+```
+sudo firewall-cmd --permanent --zone=trusted --add-interface=docker0
+sudo firewall-cmd --permanent --zone=FedoraWorkstation --add-masquerade
+```
+Install Mobi engine \
+Don't worry Mobi is written by Docker
+```
+sudo dnf install moby-engine docker-compose
+sudo systemctl enable docker
+sudo reboot
+```
+Volume problem \
+adding `:z` or `:Z` solve the problem \
+Also don't know why
+```
+volumes:
+- ./home/app:./postgres-data:z
+```
+
+basic mistake
 ```
 sudo systemctl start docker
 sudo systemctl status docker
@@ -50,13 +87,6 @@ Another basic is permission in the directory
 usermod -aG docker ${USER}
 sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
 sudo chmod g+rwx "$HOME/.docker" -R
-```
-Advance things like cgroup
-I have no idea about this. Follow this post works for me https://fedoramagazine.org/docker-and-fedora-32/
-```
-sudo grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=0"
-sudo firewall-cmd --permanent --zone=trusted --add-interface=docker0
-sudo firewall-cmd --permanent --zone=FedoraWorkstation --add-masquerade
 ```
 
 Checking what X server is used
