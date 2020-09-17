@@ -59,3 +59,11 @@ sudo firewall-cmd --permanent --zone=trusted --add-interface=docker0
 sudo firewall-cmd --permanent --zone=FedoraWorkstation --add-masquerade
 ```
 
+Checking what X server is used
+```
+loginctl
+loginctl show-session <ID>
+// ...
+// Type=wayland
+```
+
