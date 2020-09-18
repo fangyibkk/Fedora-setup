@@ -97,3 +97,10 @@ loginctl show-session <ID>
 // Type=wayland
 ```
 
+## Restarting X Server
+The default Fedora 32 use `gdm` \
+some alternative there is SDDM/LXDM/LightDM/KDM/XDM
+```
+sudo systemctl restart gdm
+```
+
