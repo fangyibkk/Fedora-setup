@@ -98,8 +98,12 @@ loginctl show-session <ID>
 ```
 
 ## Restarting X Server
+When the screen freeze switch to terminal mode by \
+`Ctrl+Alt+F2` or `F3`,`F4` for `tty3` and `tty4`
+
 The default Fedora 32 use `gdm` \
-some alternative there is SDDM/LXDM/LightDM/KDM/XDM
+you can change to some alternative like SDDM/LXDM/LightDM/KDM/XDM \
+For `gdm` restart it by
 ```
 sudo systemctl restart gdm
 ```
