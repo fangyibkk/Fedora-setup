@@ -108,3 +108,10 @@ For `gdm` restart it by
 sudo systemctl restart gdm
 ```
 
+## Change watch limit
+For some poor repos with limited tools config, you need to relax the watch rule to watch a giant amount of files.
+```
+sudo sysctl -a // seeing the name
+sudo sysctl -w fs.inotify.max_user_watches=32768
+```
+
