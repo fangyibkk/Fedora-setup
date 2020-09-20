@@ -8,6 +8,7 @@ sudo dnf install <package_name>
 sudo dnf update
 sudo dnf remove docker-*
 sudo dnf config-manager --disable docker-*
+sudo dnf search nodejs
 ```
 
 
@@ -33,7 +34,7 @@ This tell you the structure is schema --> keys --> value
 I'm impressed that node and yarn is up-to-date than apt
 ```
 sudo dnf install nodejs
-sudo dnf install yarnjs
+sudo dnf install yarnpkg
 ```
 
 ## Setup ZSH
