@@ -116,3 +116,60 @@ sudo sysctl -a // seeing the name
 sudo sysctl -w fs.inotify.max_user_watches=32768
 ```
 
+
+# X Server
+### NVidia driver
+It's hard to avoid dealing with NVidia driver. \
+The opensource version is Nouveau. \
+The official release from Nvidia is on their site \
+
+Check it by:
+```
+lspci
+// finding VGA
+lspci -k
+// see kernel module loaded
+glxinfo -B
+find /dev -group video
+```
+other directory of related file
+```
+// KERNEL
+/etc/modprobe.d/
+/etc/modprobe.d/*kms*
+```
+Main configuration
+```
+// CONFIG METHOD 1
+/etc/xorg.conf
+/etc/X11/xorg.conf
+
+// CONFIG METHOD 2
+/etc/X11/xorg.conf.d/
+...
+/etc/X11/xorg.conf.d/nn-xxxxxx.conf
+// nn is a number the lower loaded first
+/etc/X11/xorg.conf.d/50-monitors.conf
+```
+Log file
+```
+/var/log/Xorg.0.log
+```
+### General command
+```
+xinput
+// show mouse, keyboard
+
+Xorg :0 -configure
+// X is stateless
+// this command generate input
+```
+
+### RandR xrandr
+Rotate and Resize
+:0.0, the second is :0.1 
+
+References: \
+https://wiki.archlinux.org/index.php/Multihead  \
+https://wiki.archlinux.org/index.php/Xorg  \
+https://wiki.archlinux.org/index.php/NVIDIA
