@@ -168,6 +168,14 @@ Xorg :0 -configure
 ### RandR xrandr
 Rotate and Resize
 :0.0, the second is :0.1 
+For me the screen is swap so I need to see the name of interface by
+```
+xrandr
+```
+and then set the DP-1 and HDMI-1 to be left and right screen
+```
+xrandr --output DP-1 --left-of HDMI-1
+```
 
 References: \
 https://wiki.archlinux.org/index.php/Multihead  \
