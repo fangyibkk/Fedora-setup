@@ -90,6 +90,7 @@ sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
 sudo chmod g+rwx "$HOME/.docker" -R
 ```
 
+## Wayland to Xorg
 Checking what X server is used
 ```
 loginctl
@@ -97,6 +98,13 @@ loginctl show-session <ID>
 // ...
 // Type=wayland
 ```
+Go to `/etc/gdm/custom.conf` and uncomment `WaylandEnable=false`.
+Add the following line to the `[daemon]` section:
+```
+DefaultSession=gnome-xorg.desktop
+```
+References:
+https://docs.fedoraproject.org/en-US/quick-docs/configuring-xorg-as-default-gnome-session/
 
 ## Restarting X Server
 When the screen freeze switch to terminal mode by \
