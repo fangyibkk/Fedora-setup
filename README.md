@@ -6,6 +6,7 @@ basic command to install, update
 ```
 sudo dnf install <package_name>
 sudo dnf update
+sudo dnf list | grep <...>
 sudo dnf remove docker-*
 sudo dnf config-manager --disable docker-*
 sudo dnf search nodejs
@@ -192,16 +193,22 @@ https://wiki.archlinux.org/index.php/NVIDIA
 
 
 ## Happy vimmer control and esc combination
-Download make and compile the classic `xcape` solution
+Download the classic `xcape` solution make sure you have the header for compiling process.
 ```
-xcape -e 'Control_L=Escape' -t 200
+$ sudo dnf install git gcc make pkgconfig libX11-devel libXtst-devel libXi-devel
+$ git clone https://github.com/alols/xcape
+```
+Then make and compile it
+```
+$ make && sudo make install
+$ xcape -e 'Control_L=Escape' -t 200
 ```
 Then remap the caplock to control \
 See the full list of `keysym` and code by `xev` command \
 or `xev -event keyboard`
 ```
-xmodmap -e "keycode 66 = Control_L"
-xmodmap -e "keycode 67 = Caps_Lock"
+$ xmodmap -e "keycode 66 = Control_L"
+$ xmodmap -e "keycode 67 = Caps_Lock"
 ```
 
 References:
