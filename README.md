@@ -189,3 +189,20 @@ References: \
 https://wiki.archlinux.org/index.php/Multihead  \
 https://wiki.archlinux.org/index.php/Xorg  \
 https://wiki.archlinux.org/index.php/NVIDIA
+
+
+## Happy vimmer control and esc combination
+Download make and compile the classic `xcape` solution
+```
+xcape -e 'Control_L=Escape' -t 200
+```
+Then remap the caplock to control \
+See the full list of `keysym` and code by `xev` command \
+or `xev -event keyboard`
+```
+xmodmap -e "keycode 66 = Control_L"
+xmodmap -e "keycode 67 = Caps_Lock"
+```
+
+References:
+http://nelsonware.com/blog/2019/04/30/how-to-map-caps-lock-to-escape-and-control-on-fedora-via-caps2esc.html
