@@ -207,6 +207,7 @@ Then remap the caplock to control \
 See the full list of `keysym` and code by `xev` command \
 or `xev -event keyboard`
 ```
+$ setxkbmap -option caps:none
 $ xmodmap -e "keycode 66 = Control_L"
 $ xmodmap -e "keycode 67 = Caps_Lock"
 ```
