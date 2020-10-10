@@ -209,12 +209,12 @@ or `xev -event keyboard`
 ```
 $ setxkbmap -option caps:ctrl_modifier
 ```
-Xmodmap command send additional key when set
+Xmodmap command send additional key when set NOT override
 ```
 $ xmodmap -e "keycode 66 = Control_L"
 $ xmodmap -e "keycode 67 = Caps_Lock"
 ```
 
-References:
+**References:** \
 http://nelsonware.com/blog/2019/04/30/how-to-map-caps-lock-to-escape-and-control-on-fedora-via-caps2esc.html
 https://askubuntu.com/questions/445099/whats-the-opposite-of-setxkbmap-option-ctrlnocaps
