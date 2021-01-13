@@ -201,19 +201,17 @@ $ git clone https://github.com/alols/xcape
 Then make and compile it
 ```
 $ make && sudo make install
-$ xcape -e 'Control_L=Escape' -t 200
 ```
 Then remap the caplock to control \
 See the full list of `keysym` and code by `xev` command \
 or `xev -event keyboard`
+
+This combination works
 ```
 $ setxkbmap -option caps:ctrl_modifier
+$ xcape -e 'Caps_Lock=Escape
 ```
-Xmodmap command send additional key when set NOT override
-```
-$ xmodmap -e "keycode 66 = Control_L"
-$ xmodmap -e "keycode 67 = Caps_Lock"
-```
+Xmodmap is an older alternative
 
 **References:** \
 http://nelsonware.com/blog/2019/04/30/how-to-map-caps-lock-to-escape-and-control-on-fedora-via-caps2esc.html
