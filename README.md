@@ -209,7 +209,7 @@ or `xev -event keyboard`
 This combination works
 ```
 $ setxkbmap -option caps:ctrl_modifier
-$ xcape -e 'Caps_Lock=Escape
+$ xcape -e 'Caps_Lock=Escape' -t 50
 ```
 Xmodmap is an older alternative
 
