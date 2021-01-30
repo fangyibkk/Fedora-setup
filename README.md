@@ -229,3 +229,9 @@ See the window name
 xdotool getActiveWindow getWindowName
 xdotool search --name " - Google Chrome" getWindowName
 ```
+It's better to use `wmctrl` to capture single app because `xdotool` also captures widget window and other window
+```
+wmctrl -l | grep -i chrome
+// See all info here
+xwininfo -root -children | grep -i chrome
+```
