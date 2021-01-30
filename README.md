@@ -217,21 +217,3 @@ Xmodmap is an older alternative
 http://nelsonware.com/blog/2019/04/30/how-to-map-caps-lock-to-escape-and-control-on-fedora-via-caps2esc.html
 https://askubuntu.com/questions/445099/whats-the-opposite-of-setxkbmap-option-ctrlnocaps
 
-
-## Switch between application
-Go to "Keyboard Shortcut" \
-Add new shortcut
-```
-xdotool search --name " - Google Chrome" windowActivate %1
-```
-See the window name
-```
-xdotool getActiveWindow getWindowName
-xdotool search --name " - Google Chrome" getWindowName
-```
-It's better to use `wmctrl` to capture single app because `xdotool` also captures widget window and other window
-```
-wmctrl -l | grep -i chrome
-// See all info here
-xwininfo -root -children | grep -i chrome
-```
