@@ -224,3 +224,8 @@ Add new shortcut
 ```
 xdotool search --name " - Google Chrome" windowActivate %1
 ```
+See the window name
+```
+xdotool getActiveWindow getWindowName
+xdotool search --name " - Google Chrome" getWindowName
+```
