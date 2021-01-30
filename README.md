@@ -216,3 +216,11 @@ Xmodmap is an older alternative
 **References:** \
 http://nelsonware.com/blog/2019/04/30/how-to-map-caps-lock-to-escape-and-control-on-fedora-via-caps2esc.html
 https://askubuntu.com/questions/445099/whats-the-opposite-of-setxkbmap-option-ctrlnocaps
+
+
+## Switch between application
+Go to "Keyboard Shortcut" \
+Add new shortcut
+```
+xdotool search --name " - Google Chrome" windowActivate %1
+```
